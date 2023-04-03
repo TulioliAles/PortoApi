@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dAg74GsjWO3Hd6MBVYEwv1cx7EtvvVq+RTZv7B1hEezAh6ykeyNG0oRFwfownpSDfOuI7YazLWZvwnjDG0jlyA==",
+  "dgSpecHash": "0QykC5UfSLU2+u4Z2GdRa4oywhW/xISUu0MCud0qXb+Fo4qMR19ZCJQOZ0YdiHO0VeaqFusW20fIegAlighzgw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi\\PortoApi.csproj",
+  "projectFilePath": "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alessandro.tulioli\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\alessandro.tulioli\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

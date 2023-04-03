@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi\\PortoApi.csproj": {}
+    "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi\\PortoApi.csproj": {
+    "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi\\PortoApi.csproj",
+        "projectUniqueName": "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi.csproj",
         "projectName": "PortoApi",
-        "projectPath": "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi\\PortoApi.csproj",
+        "projectPath": "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi.csproj",
         "packagesPath": "C:\\Users\\alessandro.tulioli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\PortoApi\\obj\\",
+        "outputPath": "C:\\Users\\alessandro.tulioli\\Documents\\ADM\\Projetos_Net\\PortoApi\\PortoApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PortoApi.Models;
+using PortoApi.Services.Implementacoes;
+using PortoApi.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +31,11 @@ namespace PortoApi
         {
 
             services.AddControllers();
+            services.AddDbContext<PortoDBContext>();
+            services.AddTransient<IRelatorioService, RelatorioService>();
+            services.AddTransient<IMovimentacaoService, MovimentacaoService>();
+            services.AddTransient<IContainerService, ContainerService>();
+            services.AddTransient<INumeroDeContainerService, NumeroDeContainerService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PortoApi", Version = "v1" });
