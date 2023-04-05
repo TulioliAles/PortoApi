@@ -1,6 +1,8 @@
-﻿namespace PortoApi.Services.Implementacoes
+﻿using PortoApi.Services.Interfaces;
+
+namespace PortoApi.Services.Implementacoes
 {
-    public class RelatorioService
+    public class RelatorioService : IRelatorioService
     {
     }
 }
