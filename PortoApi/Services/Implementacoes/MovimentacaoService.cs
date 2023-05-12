@@ -5,6 +5,7 @@ using PortoApi.Models;
 using PortoApi.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PortoApi.Services.Implementacoes
@@ -20,7 +21,7 @@ namespace PortoApi.Services.Implementacoes
 
         public async Task<ActionResult<Movimentacao>> AdicionarMovimentacaoAsync(MovimentacaoDto movimentacaoInput)
         {
-            Container container = await _context.Containers.AsNoTracking().FirstOrDefaultAsync(c => c.NumeroDeSerie == movimentacaoInput.NumeroDeContainer);
+            Container? container = await _context.Containers.AsNoTracking().FirstOrDefaultAsync(c => c.NumeroDeSerie == movimentacaoInput.NumeroDeContainer);
 
             if (container == null)
                 return new BadRequestObjectResult(movimentacaoInput.NumeroDeContainer);
@@ -40,34 +41,77 @@ namespace PortoApi.Services.Implementacoes
             return new OkObjectResult(movimentacao);
         }
 
-        public Task<ActionResult<Movimentacao>> AlterarDataEHorarioMovimentacaoAsync(int id, DateTime inicio, DateTime fim)
+        public async Task<ActionResult<Movimentacao>> AlterarDataEHorarioMovimentacaoAsync(int id, DateTime inicio, DateTime fim)
         {
-            throw new NotImplementedException();
+            Movimentacao? movimentacao = await _context.Movimentacaos.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (movimentacao == null)
+                return new BadRequestObjectResult(id);
+
+            movimentacao.Inicio = inicio;
+            movimentacao.Fim = fim;
+
+            await _context.SaveChangesAsync();
+
+            return new OkObjectResult(movimentacao);
         }
 
-        public Task<ActionResult<Movimentacao>> AlterarTipoDeMovimentacaoAsync(int id, string tipo)
+        public async Task<ActionResult<Movimentacao>> AlterarTipoDeMovimentacaoAsync(int id, string tipo)
         {
-            throw new NotImplementedException();
+            Movimentacao? movimentacao = await _context.Movimentacaos.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (movimentacao == null)
+                return new BadRequestObjectResult(id);
+
+            movimentacao.Tipo = tipo;
+
+            await _context.SaveChangesAsync();
+
+            return new OkObjectResult(movimentacao);
         }
 
-        public Task<ActionResult<List<Movimentacao>>> ReceberMovimentacaoPorClienteAsync(string cliente)
+        public async Task<ActionResult<List<Movimentacao>>> ReceberMovimentacaoPorClienteAsync(string cliente)
         {
-            throw new NotImplementedException();
+            List<Movimentacao>? movimentacoesPorCliente = await _context.Movimentacaos.AsNoTracking().Where(m => m.Cliente == cliente).ToListAsync();
+
+            if (movimentacoesPorCliente == null)
+                return new NoContentResult();
+
+            return new OkObjectResult(movimentacoesPorCliente);
         }
 
-        public Task<ActionResult<List<Movimentacao>>> ReceberMovimentacaoPorContainerAsync(string numeroDeContainer)
+        public async Task<ActionResult<List<Movimentacao>>> ReceberMovimentacaoPorContainerAsync(string numeroDeContainer)
         {
-            throw new NotImplementedException();
+            List<Movimentacao>? movimentacoesPorContainer = await _context.Movimentacaos.AsNoTracking().Where(m => m.NumeroDeContainer == numeroDeContainer).ToListAsync();
+
+            if (movimentacoesPorContainer == null)
+                return new NoContentResult();
+
+            return new OkObjectResult(movimentacoesPorContainer);
         }
 
-        public Task<ActionResult<Movimentacao>> ReceberMovimentacaoPorIdAsync(int id)
+        public async Task<ActionResult<Movimentacao>> ReceberMovimentacaoPorIdAsync(int id)
         {
-            throw new NotImplementedException();
+            Movimentacao? movimentacao = await _context.Movimentacaos.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (movimentacao == null)
+                return new BadRequestObjectResult(id);
+
+            return new OkObjectResult(movimentacao);
+
         }
 
-        public Task<ActionResult> RemoverMovimentacaoAsync(int id)
+        public async Task<ActionResult> RemoverMovimentacaoAsync(int id)
         {
-            throw new NotImplementedException();
+            Movimentacao? movimentacao = await _context.Movimentacaos.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (movimentacao == null)
+                return new BadRequestObjectResult(id);
+
+            _context.Movimentacaos.Remove(movimentacao);
+            await _context.SaveChangesAsync();
+
+            return new AcceptedResult();
         }
     }
 }
