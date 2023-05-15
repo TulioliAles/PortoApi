@@ -92,7 +92,7 @@ namespace PortoApi.Services.Implementacoes
 
         public async Task<ActionResult<Movimentacao>> ReceberMovimentacaoPorIdAsync(int id)
         {
-            Movimentacao? movimentacao = await _context.Movimentacaos.FirstOrDefaultAsync(m => m.Id == id);
+            Movimentacao? movimentacao = await _context.Movimentacaos.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
 
             if (movimentacao == null)
                 return new BadRequestObjectResult(id);
