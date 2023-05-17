@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using PortoApi.Models;
+using PortoApi.Services.Interfaces;
 using System.Threading.Tasks;
 
 namespace PortoApi.Controllers
@@ -11,5 +9,15 @@ namespace PortoApi.Controllers
     [ApiController]
     public class RelatorioController : ControllerBase
     {
+        private readonly IRelatorioService _service;
+
+        public RelatorioController(IRelatorioService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<Relatorio>> GerarRelatorioFinalAsync()
+            => await _service.GerarRelatorioFinalAsync();
     }
 }
